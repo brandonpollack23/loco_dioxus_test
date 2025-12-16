@@ -6,7 +6,7 @@
 
 ## Dioxus Integration
 
-* Make sure production build works
+* Production problems: path is not prefixed, css resources seem to be missing
 * fix redirect from /frontend to /frontend/index.html
 * Make it so server functions can call loco stuff by making a shared crate which can be depended on which contains models etc
 * Set env in cargo build tool: DIOXUS_PUBLIC_PATH to ./target/dx/dioxus_web/debug/web/public
