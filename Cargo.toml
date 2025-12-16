@@ -19,7 +19,9 @@ default-run = "loco_test-cli"
 
 [workspace.dependencies]
 loco-rs = { version = "0.16" }
+
 dioxus = "0.7.2"
+dioxus_web = { path = "frontend/packages/web" }
 
 [dependencies]
 loco-rs = { workspace = true }
@@ -47,6 +49,7 @@ include_dir = { version = "0.7" }
 axum-extra = { version = "0.10", features = ["form"] }
 
 dioxus = { workspace = true }
+dioxus_web = { workspace = true, features = ["server"] }
 
 [[bin]]
 name = "loco_test-cli"

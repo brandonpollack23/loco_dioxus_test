@@ -11,8 +11,10 @@ use loco_rs::{
     Result,
 };
 use migration::Migrator;
+
 use std::path::Path;
 
+use crate::initializers::dioxus_frontend::DioxusFrontend;
 #[allow(unused_imports)]
 use crate::{controllers, models::_entities::users, tasks, workers::downloader::DownloadWorker};
 
@@ -42,7 +44,7 @@ impl Hooks for App {
     }
 
     async fn initializers(_ctx: &AppContext) -> Result<Vec<Box<dyn Initializer>>> {
-        Ok(vec![])
+        Ok(vec![Box::new(DioxusFrontend)])
     }
 
     fn routes(_ctx: &AppContext) -> AppRoutes {

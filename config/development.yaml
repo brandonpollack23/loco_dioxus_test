@@ -32,7 +32,7 @@ server:
       precompressed: false
       folder:
         uri: "/"
-        path: "target/dx/web/debug/web/public/"
+        path: "target/dx/dioxus_web/debug/web/public/"
       fallback: "frontend/fallback.html"
 
 # Worker Configuration

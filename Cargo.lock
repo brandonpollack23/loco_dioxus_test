@@ -2164,6 +2164,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "dioxus_web"
+version = "0.1.0"
+dependencies = [
+ "dioxus",
+ "ui",
+]
+
+[[package]]
 name = "dirs"
 version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4115,6 +4123,7 @@ dependencies = [
  "axum-extra",
  "chrono",
  "dioxus",
+ "dioxus_web",
  "include_dir",
  "insta",
  "loco-rs",
@@ -8323,14 +8332,6 @@ dependencies = [
  "dlib",
  "log",
  "pkg-config",
-]
-
-[[package]]
-name = "web"
-version = "0.1.0"
-dependencies = [
- "dioxus",
- "ui",
 ]
 
 [[package]]

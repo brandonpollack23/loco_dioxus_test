@@ -1,0 +1,5 @@
+[application]
+
+[web.app]
+title = "Loco Frontend"
+base_path = "/frontend/"
