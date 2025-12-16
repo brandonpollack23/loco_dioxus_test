@@ -5,6 +5,20 @@
 This is the **SaaS starter** which includes a `User` model and authentication based on JWT.
 It also include configuration sections that help you pick either a frontend or a server-side template set up for your fullstack server.
 
+## Developing
+
+1. Run cargo loco watch (with dioxus assets env configured if needed (see todos))
+1. Run dx serve from frontend/packages/web 
+1. profit.
+
+You will develop from the dx serve server which is proxied into the loco server for requests.
+
+This should be working...
+
+Deployed apps will just serve with loco and the dioxus app is served from the
+"/frontend" route, but in development it is served from "/" (in the dx serve
+port).
+
 
 ## Quick Start
 

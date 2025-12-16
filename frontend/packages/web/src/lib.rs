@@ -9,11 +9,16 @@ mod views;
 #[rustfmt::skip]
 enum Route {
     #[layout(WebNavbar)]
-    #[route("/")]
+
+    #[redirect("/", || Route::Home {})]
+
     #[route("/index.html")]
     Home {},
     #[route("/blog/:id")]
     Blog { id: i32 },
+
+    #[route("/:..route")]
+    PageNotFound { route: Vec<String> },
 }
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
@@ -41,5 +46,16 @@ fn WebNavbar() -> Element {
         }
 
         Outlet::<Route> {}
+    }
+}
+
+#[component]
+fn PageNotFound(route: Vec<String>) -> Element {
+    rsx! {
+        div {
+            h1 { "Page not found" }
+            p { "We are sorry, but the page you requested was not found." }
+            pre { color: "red", "log: {route:?}" }
+        }
     }
 }
