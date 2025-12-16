@@ -9,6 +9,7 @@
 * Mount dioxus router so the nesting is automatic on the frontend
 * proxy to loco instead of dioxus on dx serve
 * Change fallback.html to dioxus normal 404
+* Is it possible to have cargo loco routes know about initialized routes for dioxus?
 * other config yml file setups for frontend
 * SSR integration into loco
 
