@@ -1,8 +1,10 @@
 [application]
 
-[web.app]
-title = "Loco Frontend"
-base_path = "frontend"
+asset_dir = "assets"
 
-[[web.proxy]]
-backend = "http://localhost:5150/frontend/api"
+# [web.app]
+# title = "Loco Frontend"
+# base_path = "frontend"
+
+# [[web.proxy]]
+# backend = "http://localhost:5150/frontend/"
