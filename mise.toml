@@ -1,8 +1,23 @@
 [env]
 DIOXUS_PUBLIC_PATH = "./target/dx/dioxus_web/debug/web/public"
 
-[tasks.dev]
+[tasks.backend_dev]
 run = "cargo loco watch"
+
+[tasks.frontend_dev]
+run = "dx serve -p dioxus_web"
+
+[tasks.frontend_build_release]
+run = "dx build -p dioxus_web --release"
+
+[tasks.build_release]
+run = ["frontend_build_release", "cargo build --release"]
+
+[tasks.build_container]
+usage = '''
+arg "<tag>" help="Build Tag" default="loco_test"
+'''
+run = '''docker build --rm -t ${usage_tag} .'''
 
 [tasks.prod]
 run = "cargo loco start -e production"

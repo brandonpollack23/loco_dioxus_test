@@ -8,17 +8,13 @@ It also include configuration sections that help you pick either a frontend or a
 ## Developing
 
 1. Run cargo loco watch (with dioxus assets env configured if needed (see todos))
-1. Run dx serve from frontend/packages/web 
+1. Run dx serve -p dioxus_web
+1. Access the index page ***not*** front localhost:8080/frontend/index.html but without the frontend path since we're not mounting it, just localhost:8080 will do.
 1. profit.
 
 You will develop from the dx serve server which is proxied into the loco server for requests.
 
 This should be working...
-
-Deployed apps will just serve with loco and the dioxus app is served from the
-"/frontend" route, but in development it is served from "/" (in the dx serve
-port).
-
 
 ## Quick Start
 

@@ -1,10 +1,10 @@
 [application]
-
 asset_dir = "assets"
 
-# [web.app]
-# title = "Loco Frontend"
-# base_path = "frontend"
+[web.app]
+title = "Loco Frontend"
+# No base_path for development mode
+# For production builds, use: dx build --release --config Dioxus.prod.toml
 
-# [[web.proxy]]
-# backend = "http://localhost:5150/frontend/"
+[[web.proxy]]
+backend = "http://localhost:5150/frontend/"
