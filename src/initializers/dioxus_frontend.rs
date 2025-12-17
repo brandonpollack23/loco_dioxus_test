@@ -36,8 +36,8 @@ impl Initializer for DioxusFrontend {
         // Add redirect BEFORE nesting so it takes precedence
         let router = router
             .route(
-                "/frontend",
-                get(|| async { Redirect::permanent("/frontend/") }),
+                "/",
+                get(|| async { Redirect::permanent("/frontend/index.html") }),
             )
             .merge(dx_server_functions)
             .nest("/frontend", dx_static_assets);

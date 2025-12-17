@@ -1,0 +1,9 @@
+[env]
+DIOXUS_PUBLIC_PATH = "./target/dx/dioxus_web/debug/web/public"
+
+[tasks.dev]
+run = "cargo loco watch"
+
+[tasks.prod]
+run = "cargo loco start -e production"
+env = { "DIOXUS_PUBLIC_PATH" = "./target/dx/dioxus_web/release/web/public" }

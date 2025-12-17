@@ -22,4 +22,6 @@ COPY --from=builder /usr/src/frontend/fallback.html frontend/fallback.html
 COPY --from=builder /usr/src/config config
 COPY --from=builder /usr/src/target/release/loco_test-cli loco_test-cli
 
+ENV DIOXUS_PUBLIC_PATH="./target/dx/dioxus_web/release/web/public"
+
 ENTRYPOINT ["/usr/app/loco_test-cli", "-e", "production", "start"]
