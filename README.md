@@ -7,14 +7,19 @@ It also include configuration sections that help you pick either a frontend or a
 
 ## Developing
 
-1. Run cargo loco watch (with dioxus assets env configured if needed (see todos))
-1. Run dx serve -p dioxus_web
-1. Access the index page ***not*** front localhost:8080/frontend/index.html but without the frontend path since we're not mounting it, just localhost:8080 will do.
+1. Run `mise backend_dev` in a terminal
+1. Run `mise frontend_dev` in another terminal, this will be configured to proxy to backend_dev by Dioxus.toml
+   If you want to develop frontend independently either comment it out in Dioxus.toml or disable it with command line manually.
+1. Access localhost:8080/frontend 
 1. profit.
 
 You will develop from the dx serve server which is proxied into the loco server for requests.
 
 This should be working...
+
+### Serving the frontend from the backend dev server
+
+In order to do this it needs to be built with dx so the `asset` macro does its thing.
 
 ## Quick Start
 

@@ -10,9 +10,7 @@ mod views;
 enum Route {
     #[layout(WebNavbar)]
 
-    #[redirect("/", || Route::Home {})]
-
-    #[route("/index.html")]
+    #[route("/")]
     Home {},
     #[route("/blog/:id")]
     Blog { id: i32 },
@@ -26,36 +24,36 @@ const MAIN_CSS: Asset = asset!("/assets/main.css");
 
 #[component]
 pub fn App() -> Element {
-    rsx! {
-        // Global app resources
-        document::Link { rel: "icon", href: FAVICON }
-        document::Link { rel: "stylesheet", href: MAIN_CSS }
+  rsx! {
+    // Global app resources
+    document::Link { rel: "icon", href: FAVICON }
+    document::Link { rel: "stylesheet", href: MAIN_CSS }
 
-        Router::<Route> {}
-    }
+    Router::<Route> {}
+  }
 }
 
 /// A web-specific Router around the shared `Navbar` component
 /// which allows us to use the web-specific `Route` enum.
 #[component]
 fn WebNavbar() -> Element {
-    rsx! {
-        Navbar {
-            Link { to: Route::Home {}, "Home" }
-            Link { to: Route::Blog { id: 1 }, "Blog" }
-        }
-
-        Outlet::<Route> {}
+  rsx! {
+    Navbar {
+      Link { to: Route::Home {}, "Home" }
+      Link { to: Route::Blog { id: 1 }, "Blog" }
     }
+
+    Outlet::<Route> {}
+  }
 }
 
 #[component]
 fn PageNotFound(route: Vec<String>) -> Element {
-    rsx! {
-        div {
-            h1 { "Page not found" }
-            p { "We are sorry, but the page you requested was not found." }
-            pre { color: "red", "log: {route:?}" }
-        }
+  rsx! {
+    div {
+      h1 { "Page not found" }
+      p { "We are sorry, but the page you requested was not found." }
+      pre { color: "red", "log: {route:?}" }
     }
+  }
 }

@@ -10,8 +10,9 @@ RUN apt-get install -y pkgconf libssl-dev libc6
 
 # Rebuild front end in release mode
 RUN cargo install dioxus-cli --locked
-RUN dx build -p dioxus_web --config Dioxus.prod.toml --release
-RUN cargo build --release
+RUN dx build -p dioxus_web --release --base-path frontend
+ENV DIOXUS_ASSET_PATH="frontend"
+RUN dx build --server --release --base-path frontend
 
 FROM debian:trixie-slim
 

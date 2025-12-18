@@ -50,6 +50,9 @@ axum-extra = { version = "0.10", features = ["form"] }
 
 dioxus = { workspace = true }
 dioxus_web = { workspace = true, features = ["server"] }
+anyhow = "1.0.100"
+tower-http = "0.6.8"
+tower = "0.5.2"
 
 [[bin]]
 name = "loco_test-cli"

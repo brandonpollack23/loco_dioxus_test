@@ -18,31 +18,31 @@ enum Route {
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 
 fn main() {
-    dioxus::launch(App);
+  dioxus::launch(App);
 }
 
 #[component]
 fn App() -> Element {
-    // Build cool things ✌️
+  // Build cool things ✌️
 
-    rsx! {
-        // Global app resources
-        document::Link { rel: "stylesheet", href: MAIN_CSS }
+  rsx! {
+      // Global app resources
+      document::Link { rel: "stylesheet", href: MAIN_CSS }
 
-        Router::<Route> {}
-    }
+      Router::<Route> {}
+  }
 }
 
 /// A mobile-specific Router around the shared `Navbar` component
 /// which allows us to use the mobile-specific `Route` enum.
 #[component]
 fn MobileNavbar() -> Element {
-    rsx! {
-        Navbar {
-            Link { to: Route::Home {}, "Home" }
-            Link { to: Route::Blog { id: 1 }, "Blog" }
-        }
+  rsx! {
+      Navbar {
+          Link { to: Route::Home {}, "Home" }
+          Link { to: Route::Blog { id: 1 }, "Blog" }
+      }
 
-        Outlet::<Route> {}
-    }
+      Outlet::<Route> {}
+  }
 }

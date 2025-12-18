@@ -1,24 +1,38 @@
 [env]
 DIOXUS_PUBLIC_PATH = "./target/dx/dioxus_web/debug/web/public"
+DIOXUS_ASSET_ROOT = "frontend"
+
+# Running tasks
 
 [tasks.backend_dev]
-run = "cargo loco watch"
+description = "Start a backend server to serve directly from.  No hot reloading."
+run = ["dx serve --server --base-path frontend --args start"]
 
 [tasks.frontend_dev]
-run = "dx serve -p dioxus_web"
+description = "Start a frontend dev server with hot reload that proxies into the backend started with backend_dev"
+run = ["dx serve -p dioxus_web --web --fullstack"]
+
+[tasks.prod_config_dev]
+description = "Builds and starts a server with production configuration"
+run = [
+  { task = "build_release" },
+  "./target/release/loco_test-cli start -e production",
+]
+env = { "DIOXUS_PUBLIC_PATH" = "./target/dx/dioxus_web/release/web/public" }
+
+# Building tasks
 
 [tasks.frontend_build_release]
-run = "dx build -p dioxus_web --release"
+description = "Builds frontend with release optimization"
+run = "dx build -p dioxus_web --base-path frontend --release"
 
 [tasks.build_release]
-run = ["frontend_build_release", "cargo build --release"]
+description = "Builds back and frontend with production configuration"
+run = [{ task = "frontend_build_release" }, "cargo build --release"]
 
 [tasks.build_container]
+description = "Build a container to deploy the app with both front and backend"
 usage = '''
 arg "<tag>" help="Build Tag" default="loco_test"
 '''
 run = '''docker build --rm -t ${usage_tag} .'''
-
-[tasks.prod]
-run = "cargo loco start -e production"
-env = { "DIOXUS_PUBLIC_PATH" = "./target/dx/dioxus_web/release/web/public" }

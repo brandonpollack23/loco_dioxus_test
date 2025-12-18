@@ -26,14 +26,14 @@ server:
   middlewares:
     fallback:
       enable: false
-    static:
-      enable: true
-      must_exist: true
-      precompressed: false
-      folder:
-        uri: "/"
-        path: "target/dx/dioxus_web/debug/web/public/"
-      fallback: "frontend/fallback.html"
+    # static:
+    #   enable: true
+    #   must_exist: true
+    #   precompressed: false
+    #   folder:
+    #     uri: "/"
+    #     path: "public"
+    #   fallback: "frontend/fallback.html"
 
 # Worker Configuration
 workers:

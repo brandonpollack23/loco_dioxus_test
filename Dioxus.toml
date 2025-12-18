@@ -6,4 +6,4 @@ title = "Loco Frontend"
 base_path = "frontend"
 
 [[web.proxy]]
-backend = "http://localhost:5150/frontend/"
+backend = "http://localhost:5150/frontend/api"

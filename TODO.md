@@ -2,13 +2,15 @@
 
 ## Dioxus Integration
 
-* fix redirect from /frontend to /frontend/index.html
-* Production problems: CSS files are not picked up by backend server
+* frontend prepended onto wasm
+* test docker container
+* refcell already borrowed, make sure im not accidentally posting to wrong path or something
 * Make it so server functions can call loco stuff by making a shared crate which can be depended on which contains models etc
 * Change fallback.html to dioxus normal 404
 * Is it possible to have cargo loco routes know about initialized routes for dioxus?
 * other config yml file setups for frontend
 * SSR integration into loco
+* make "frontend" subroute configurable?
 
 ## Template Utility
 
