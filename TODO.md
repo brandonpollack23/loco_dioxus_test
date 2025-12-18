@@ -2,7 +2,6 @@
 
 ## Dioxus Integration
 
-* frontend prepended onto wasm
 * test docker container
 * refcell already borrowed, make sure im not accidentally posting to wrong path or something
 * Make it so server functions can call loco stuff by making a shared crate which can be depended on which contains models etc

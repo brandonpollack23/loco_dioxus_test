@@ -7,8 +7,8 @@ It also include configuration sections that help you pick either a frontend or a
 
 ## Developing
 
-1. Run `mise backend_dev` in a terminal
-1. Run `mise frontend_dev` in another terminal, this will be configured to proxy to backend_dev by Dioxus.toml
+1. Run `mise frontend_dev` in a terminal, this will be configured to proxy to backend_dev by Dioxus.toml
+1. Run `mise backend_dev` in another terminal to start the server. 
    If you want to develop frontend independently either comment it out in Dioxus.toml or disable it with command line manually.
 1. Access localhost:8080/frontend 
 1. profit.
